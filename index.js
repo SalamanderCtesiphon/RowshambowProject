@@ -22,15 +22,11 @@ let playerSelection = capitalize(middleStep);
 //check to make sure that the computer and player selctions are 
 // working properly
 
-console.log('Player: ' + playerSelection);
-        
-console.log('Computer: ' + computerChoice(options));
-
 // the function to give the results of the game for each round
 let computerSelection = "";
 
 function playRound(playerSelection, computerSelection) {
-    computerChoice(options);
+    computerSelection = computerChoice(options);
     if (playerSelection == 'Rock' && computerSelection == 'Scissors') {
         return 'You win! Rock beats Scissors';
     } else if (playerSelection == 'Rock' && computerSelection == 'Paper') {
@@ -53,22 +49,27 @@ function playRound(playerSelection, computerSelection) {
 }
 // trying to envoke the game five times and create a tally of wins for
 // each player
+
+
+let results = "";
 let playerWins = 0;
 let computerWins = 0;
-let results = playRound(playerSelection, computerSelection);
-console.log(results)
-
 function game(playerWins, computerWins) {
     for (let i = 0; i < 5; i++) {
+        results = playRound(playerSelection, computerSelection);
+        console.log('Player: ' + playerSelection);
+        console.log('Computer: ' + computerSelection);   
+        console.log(results);   
         if (results == 'You win! Rock beats Scissors' || results == 'You win! Paper beats Rock' || results == 'You win! Scissors beat Paper') {
-            playerWins++;            
+            ++playerWins;            
         } else if (results == 'You lose! Rock beats Scissors' || results == 'You lose! Paper beats Rock' || results == 'You lose! Scissors beat Paper') {
-            computerWins++;            
-        }
-        return computerWins, playerWins;
+            ++computerWins;            
+            }
     }
+    return computerWins, playerWins;
 }
-
 game(playerWins, computerWins);
-console.log(playerWins);
-console.log(computerWins)
+//console.log(game(playerWins, computerWins));
+
+//console.log(playerWins);
+//console.log(computerWins)
