@@ -4,9 +4,9 @@ Array.prototype.random = function () {
 }
 var list = ['Rock', 'Paper', 'Scissors'];
 let computerSelection = list.random();
-// take an inout from the player
+// take an input from the player
 let playerChoice = (prompt("Please enter your selection for the game you: [Rock, Paper or Scissors}"));
-// format the inout for comparison
+// format the input for comparison
 function capitalize (playerChoice) {
     let first = playerChoice.slice(0,1);
     let rest = playerChoice.slice(1);
@@ -17,6 +17,30 @@ let playerSelection = capitalize(playerChoice);
 //check to make sure that the computer and player selctions are 
 // working properly
 
-console.log(' Player: ' + playerSelection);
+console.log('Player: ' + playerSelection);
         
 console.log('Computer: ' + computerSelection);
+
+function playRound(playerSelection, computerSelection) {
+    if (playerSelection == 'Rock' && computerSelection == 'Scissors') {
+        return 'You win! Rock beats Scissor';
+    } else if (playerSelection == 'Rock' && computerSelection == 'Paper') {
+        return 'You lose! Paper beats Rock';
+    } else if ( playerSelection == 'Rock' && computerSelection == 'ROck') {
+        return 'Tie';
+    } else if (playerSelection == 'Paper' && computerSelection == 'Rock') {
+        return 'You win! Paper beats Rock';
+    } else if ( playerSelection == 'Paper' && computerSelection == 'Scissors') {
+        return 'You lose! Scissors beat Paper';
+    } else if (playerSelection == 'Paper' && computerSelection == 'Paper') {
+        return 'Tie';
+    } else if (playerSelection == 'Scissors' && computerSelection == 'Paper') {
+        return 'You win! Scissors beat Paper';
+    } else if ( playerSelection == 'Scissors' && computerSelection == 'Rock') {
+        return 'You lose! Rock beats Scissors';
+    } else if (playerSelection == 'Scissors' && computerSelection == 'Scissors') {
+        return 'Tie';
+    } 
+}
+
+console.log(playRound(playerSelection, computerSelection));
