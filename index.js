@@ -28,48 +28,41 @@ let computerSelection = "";
 function playRound(playerSelection, computerSelection) {
     computerSelection = computerChoice(options);
     if (playerSelection == 'Rock' && computerSelection == 'Scissors') {
-        return 'You win! Rock beats Scissors';
+        return `You win! ${playerSelection} beats ${computerSelection}`;
     } else if (playerSelection == 'Rock' && computerSelection == 'Paper') {
-        return 'You lose! Paper beats Rock';
+        return `You lose! ${computerSelection} beats ${playerSelection}`;
     } else if ( playerSelection == 'Rock' && computerSelection == 'ROck') {
         return 'Tie';
     } else if (playerSelection == 'Paper' && computerSelection == 'Rock') {
-        return 'You win! Paper beats Rock';
+        return `You win! ${playerSelection} beats ${computerSelection}`;
     } else if ( playerSelection == 'Paper' && computerSelection == 'Scissors') {
-        return 'You lose! Scissors beat Paper';
+        return `You lose! ${computerSelection} beat ${playerSelection}`;
     } else if (playerSelection == 'Paper' && computerSelection == 'Paper') {
         return 'Tie';
     } else if (playerSelection == 'Scissors' && computerSelection == 'Paper') {
-        return 'You win! Scissors beat Paper';
+        return `You win! ${playerSelection} beat ${computerSelection}`;
     } else if ( playerSelection == 'Scissors' && computerSelection == 'Rock') {
-        return 'You lose! Rock beats Scissors';
+        return `You lose! ${computerSelection} beats ${playerSelection}`;
     } else if (playerSelection == 'Scissors' && computerSelection == 'Scissors') {
         return 'Tie';
     } 
 }
-// trying to envoke the game five times and create a tally of wins for
+// trying to invoke the game five times and create a tally of wins for
 // each player
-
-
 let results = "";
-let playerWins = 0;
-let computerWins = 0;
-function game(playerWins, computerWins) {
+function game() {
     for (let i = 0; i < 5; i++) {
-        results = playRound(playerSelection, computerSelection);
-        console.log('Player: ' + playerSelection);
-        console.log('Computer: ' + computerSelection);   
-        console.log(results);   
-        if (results == 'You win! Rock beats Scissors' || results == 'You win! Paper beats Rock' || results == 'You win! Scissors beat Paper') {
-            ++playerWins;            
-        } else if (results == 'You lose! Rock beats Scissors' || results == 'You lose! Paper beats Rock' || results == 'You lose! Scissors beat Paper') {
-            ++computerWins;            
-            }
-    }
-    return computerWins, playerWins;
+        results = playRound(playerSelection, computerSelection);  
+        console.log(results);       
+    }    
 }
-game(playerWins, computerWins);
-//console.log(game(playerWins, computerWins));
 
-//console.log(playerWins);
-//console.log(computerWins)
+game();
+//let playerWins = 0;
+//let computerWins = 0;
+
+//if (results == 'You win! Rock beats Scissors' || results == 'You win! Paper beats Rock' || results == 'You win! Scissors beat Paper') {
+  //  ++playerWins;            
+//} else if (results == 'You lose! Rock beats Scissors' || results == 'You lose! Paper beats Rock' || results == 'You lose! Scissors beat Paper') {
+  //  --playerWins;            
+//}
