@@ -21,6 +21,8 @@ console.log('Player: ' + playerSelection);
         
 console.log('Computer: ' + computerSelection);
 
+// the function to give the results of the game for each round
+
 function playRound(playerSelection, computerSelection) {
     if (playerSelection == 'Rock' && computerSelection == 'Scissors') {
         return 'You win! Rock beats Scissor';
@@ -42,5 +44,14 @@ function playRound(playerSelection, computerSelection) {
         return 'Tie';
     } 
 }
+let results = playRound(playerSelection, computerSelection);
 
-console.log(playRound(playerSelection, computerSelection));
+console.log(results);
+
+
+function game() {
+    for (let i = 0; i < 5; i++) {
+
+    }
+
+}
