@@ -5,7 +5,7 @@ function computerChoice (options) {
     return options[computerSelection];
 }
 // take an input from the player
-const playerChoice ="";
+/* const playerChoice ="";
 function playerInput (playerChoice) {
     playerChoice = (prompt("Please enter your selection for the game: [Rock, Paper or Scissors}"));
     return playerChoice;
@@ -18,31 +18,28 @@ function capitalize (middleStep) {
     let newName = first.toUpperCase(first) + rest.toLowerCase(rest);
     return newName;
 }
-let playerSelection = capitalize(middleStep);
-//check to make sure that the computer and player selctions are 
-// working properly
-
-// the function to give the results of the game for each round
+//play a single round and return a result */
+let playerSelection = 'Scissors' //capitalize(middleStep);
 let computerSelection = "";
-
+console.log('Player chooses: ', playerSelection);
 function playRound(playerSelection, computerSelection) {
     computerSelection = computerChoice(options);
     if (playerSelection == 'Rock' && computerSelection == 'Scissors') {
-        return `You win! ${playerSelection} beats ${computerSelection}`;
+        return 'You win! Rock beats Scissors';
     } else if (playerSelection == 'Rock' && computerSelection == 'Paper') {
-        return `You lose! ${computerSelection} beats ${playerSelection}`;
+        return 'You lose! Paper beats Rock';
     } else if ( playerSelection == 'Rock' && computerSelection == 'ROck') {
         return 'Tie';
     } else if (playerSelection == 'Paper' && computerSelection == 'Rock') {
-        return `You win! ${playerSelection} beats ${computerSelection}`;
+        return 'You win! Paper beats Rock';
     } else if ( playerSelection == 'Paper' && computerSelection == 'Scissors') {
-        return `You lose! ${computerSelection} beat ${playerSelection}`;
+        return 'You lose! Scissors beat Paper';
     } else if (playerSelection == 'Paper' && computerSelection == 'Paper') {
         return 'Tie';
     } else if (playerSelection == 'Scissors' && computerSelection == 'Paper') {
-        return `You win! ${playerSelection} beat ${computerSelection}`;
+        return 'You win! Scissors beat Paper';
     } else if ( playerSelection == 'Scissors' && computerSelection == 'Rock') {
-        return `You lose! ${computerSelection} beats ${playerSelection}`;
+        return 'You lose! Rock beats Scissors';
     } else if (playerSelection == 'Scissors' && computerSelection == 'Scissors') {
         return 'Tie';
     } 
@@ -50,19 +47,29 @@ function playRound(playerSelection, computerSelection) {
 // trying to invoke the game five times and create a tally of wins for
 // each player
 let results = "";
+let playerWins = 0;
+let computerWins = 0;
 function game() {
     for (let i = 0; i < 5; i++) {
-        results = playRound(playerSelection, computerSelection);  
-        console.log(results);       
+        results = playRound(playerSelection, computerSelection); 
+            if (results == 'You win! Rock beats Scissors' || results == 'You win! Paper beats Rock' || results == 'You win! Scissors beat Paper') {
+                console.log(results);
+                return ++playerWins;           
+            } else if (results == 'You lose! Rock beats Scissors' || results == 'You lose! Paper beats Rock' || results == 'You lose! Scissors beat Paper') {
+                console.log(results);
+                return ++computerWins;            
+            } else if (results == 'Tie') {
+                console.log(results);
+                return 
+            }   
     }    
 }
 
 game();
-//let playerWins = 0;
-//let computerWins = 0;
-
-//if (results == 'You win! Rock beats Scissors' || results == 'You win! Paper beats Rock' || results == 'You win! Scissors beat Paper') {
-  //  ++playerWins;            
-//} else if (results == 'You lose! Rock beats Scissors' || results == 'You lose! Paper beats Rock' || results == 'You lose! Scissors beat Paper') {
-  //  --playerWins;            
-//}
+/* 
+function determineWinner (){
+    game();
+   
+}
+console.log(playerWins);
+console.log(computerWins); */
