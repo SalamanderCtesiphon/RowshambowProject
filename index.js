@@ -3,7 +3,7 @@ Array.prototype.random = function () {
     return this[Math.floor((Math.random())*this.length)]
 }
 var list = ['Rock', 'Paper', 'Scissors'];
-
+const computerSelection = list.random();
 // take an input from the player
 const playerChoice = (prompt("Please enter your selection for the game you: [Rock, Paper or Scissors}"));
 // format the input for comparison
@@ -13,7 +13,7 @@ function capitalize (playerChoice) {
     let newName = first.toUpperCase(first) + rest.toLowerCase(rest);
     return newName;
 }
-
+let playerSelection = capitalize(playerChoice);
 //check to make sure that the computer and player selctions are 
 // working properly
 
@@ -23,9 +23,7 @@ console.log('Computer: ' + computerSelection);
 
 // the function to give the results of the game for each round
 
-function playRound() {
-    const computerSelection = list.random();
-    let playerSelection = capitalize(playerChoice);
+function playRound(playerSelection, computerSelection) {
     if (playerSelection == 'Rock' && computerSelection == 'Scissors') {
         return 'You win! Rock beats Scissors';
     } else if (playerSelection == 'Rock' && computerSelection == 'Paper') {
@@ -51,7 +49,7 @@ function playRound() {
 let playerWins = 0;
 let computerWins = 0;
 let results = playRound(playerSelection, computerSelection);
-console.log(results);
+console.log(results)
 
 function game(playerWins, computerWins) {
     for (let i = 0; i < 5; i++) {
