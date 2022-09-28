@@ -66,10 +66,10 @@ function game() {
 }
 
 game();
-/* 
+/*
 function determineWinner (){
     game();
    
-}
+}*/
 console.log(playerWins);
-console.log(computerWins); */
+console.log(computerWins);
