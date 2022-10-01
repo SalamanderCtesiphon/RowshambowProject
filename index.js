@@ -5,9 +5,9 @@ function computerChoice (options) {
     return options[computerSelection];
 }
 // take an input from the player
-/* const playerChoice ="";
+const playerChoice ="";
 function playerInput (playerChoice) {
-    playerChoice = (prompt("Please enter your selection for the game: [Rock, Paper or Scissors}"));
+    playerChoice = (prompt("Please enter your selection for the game: [Rock, Paper or Scissors]"));
     return playerChoice;
 }
 let middleStep = playerInput(playerChoice);
@@ -18,30 +18,30 @@ function capitalize (middleStep) {
     let newName = first.toUpperCase(first) + rest.toLowerCase(rest);
     return newName;
 }
-//play a single round and return a result */
-let playerSelection = 'Scissors' //capitalize(middleStep);
+//play a single round and return a result 
+let playerSelection = capitalize(middleStep);
 let computerSelection = "";
 console.log('Player chooses: ', playerSelection);
 function playRound(playerSelection, computerSelection) {
     computerSelection = computerChoice(options);
     if (playerSelection == 'Rock' && computerSelection == 'Scissors') {
-        return 'You win! Rock beats Scissors';
+        return 'W';
     } else if (playerSelection == 'Rock' && computerSelection == 'Paper') {
-        return 'You lose! Paper beats Rock';
+        return 'L';
     } else if ( playerSelection == 'Rock' && computerSelection == 'ROck') {
-        return 'Tie';
+        return 'T';
     } else if (playerSelection == 'Paper' && computerSelection == 'Rock') {
-        return 'You win! Paper beats Rock';
+        return 'W';
     } else if ( playerSelection == 'Paper' && computerSelection == 'Scissors') {
-        return 'You lose! Scissors beat Paper';
+        return 'L';
     } else if (playerSelection == 'Paper' && computerSelection == 'Paper') {
-        return 'Tie';
+        return 'T';
     } else if (playerSelection == 'Scissors' && computerSelection == 'Paper') {
-        return 'You win! Scissors beat Paper';
+        return 'W';
     } else if ( playerSelection == 'Scissors' && computerSelection == 'Rock') {
-        return 'You lose! Rock beats Scissors';
+        return 'L';
     } else if (playerSelection == 'Scissors' && computerSelection == 'Scissors') {
-        return 'Tie';
+        return 'T';
     } 
 }
 // trying to invoke the game five times and create a tally of wins for
