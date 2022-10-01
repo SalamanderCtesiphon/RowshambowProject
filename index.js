@@ -47,27 +47,48 @@ function playRound(playerSelection, computerSelection) {
 // trying to invoke the game five times and create a tally of wins for
 // each player
 let results = "";
-/*let playerWins = 0;
-let computerWins = 0;*/
+let playerWins = 0;
+let ties =0;
+let computerWins = 0;
 function game() {
     for (let i = 0; i < 5; i++) {
-        playRound();
+       
+        playRound(playerSelection, computerSelection);
         results = playRound(playerSelection, computerSelection); 
-        if (results == 'You win rock beats scissors' || 'You win paper beats rock' || 'You win scissors beat paper') {
-            console.log(results);          
-        } else if (results == 'You lose paper beats rock' || 'You lose scissors beat paper' || 'You lose rock beats scissors') {
-            console.log(results);            
-        } else if (results == 'Tie') {
+        if (results === 'Tie') {
+            console.log(results);
+            ties++;
+             
+                
+        } else if (results === 'You lose paper beats rock' || results === 'You lose scissors beat paper' || results === 'You lose rock beats scissors') {
             console.log(results); 
-        }   
-    }    
+            computerWins++; 
+            
+                        
+        } else if (results === 'You win rock beats scissors' || results === 'You win paper beats rock' || results === 'You win scissors beat paper') {
+           
+            console.log(results);
+            playerWins++;
+                  
+        }  
+    }
+    
 }
 
 game();
+console.log('ties =', ties);
+ 
+console.log('computer =', computerWins);
+console.log('player =',playerWins); 
+
+if (computerWins + ties > playerWins) {
+    console.log('you lose');
+} else {
+    console.log('you won')
+}
 /*
 function determineWinner (){
     game();
    
 }*/
-/*console.log(playerWins);
-console.log(computerWins);*/
+
