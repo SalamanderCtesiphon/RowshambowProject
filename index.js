@@ -52,13 +52,13 @@ let computerWins = 0;
 function game() {
     for (let i = 0; i < 5; i++) {
         results = playRound(playerSelection, computerSelection); 
-            if (results == 'You win! Rock beats Scissors' || results == 'You win! Paper beats Rock' || results == 'You win! Scissors beat Paper') {
+            if (results == 'W') {
                 console.log(results);
                 return ++playerWins;           
-            } else if (results == 'You lose! Rock beats Scissors' || results == 'You lose! Paper beats Rock' || results == 'You lose! Scissors beat Paper') {
+            } else if (results == 'L') {
                 console.log(results);
                 return ++computerWins;            
-            } else if (results == 'Tie') {
+            } else if (results == 'T') {
                 console.log(results);
                 return 
             }   
