@@ -47,21 +47,19 @@ function playRound(playerSelection, computerSelection) {
 // trying to invoke the game five times and create a tally of wins for
 // each player
 let results = "";
-let playerWins = 0;
-let computerWins = 0;
+/*let playerWins = 0;
+let computerWins = 0;*/
 function game() {
     for (let i = 0; i < 5; i++) {
+        playRound();
         results = playRound(playerSelection, computerSelection); 
-            if (results == 'W') {
-                console.log(results);
-                return ++playerWins;           
-            } else if (results == 'L') {
-                console.log(results);
-                return ++computerWins;            
-            } else if (results == 'T') {
-                console.log(results);
-                return 
-            }   
+        if (results == 'W') {
+            console.log(results);          
+        } else if (results == 'L') {
+            console.log(results);            
+        } else if (results == 'T') {
+            console.log(results); 
+        }   
     }    
 }
 
@@ -71,5 +69,5 @@ function determineWinner (){
     game();
    
 }*/
-console.log(playerWins);
-console.log(computerWins);
+/*console.log(playerWins);
+console.log(computerWins);*/
