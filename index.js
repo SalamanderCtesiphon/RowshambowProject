@@ -25,23 +25,23 @@ console.log('Player chooses: ', playerSelection);
 function playRound(playerSelection, computerSelection) {
     computerSelection = computerChoice(options);
     if (playerSelection == 'Rock' && computerSelection == 'Scissors') {
-        return 'W';
+        return 'You win rock beats scissors';
     } else if (playerSelection == 'Rock' && computerSelection == 'Paper') {
-        return 'L';
-    } else if ( playerSelection == 'Rock' && computerSelection == 'ROck') {
-        return 'T';
+        return 'You lose paper beats rock';
+    } else if ( playerSelection == 'Rock' && computerSelection == 'Rock') {
+        return 'Tie';
     } else if (playerSelection == 'Paper' && computerSelection == 'Rock') {
-        return 'W';
+        return 'You win paper beats rock';
     } else if ( playerSelection == 'Paper' && computerSelection == 'Scissors') {
-        return 'L';
+        return 'You lose scissors beat paper';
     } else if (playerSelection == 'Paper' && computerSelection == 'Paper') {
-        return 'T';
+        return 'Tie';
     } else if (playerSelection == 'Scissors' && computerSelection == 'Paper') {
-        return 'W';
+        return 'You win scissors beat paper';
     } else if ( playerSelection == 'Scissors' && computerSelection == 'Rock') {
-        return 'L';
+        return 'You lose rock beats scissors';
     } else if (playerSelection == 'Scissors' && computerSelection == 'Scissors') {
-        return 'T';
+        return 'Tie';
     } 
 }
 // trying to invoke the game five times and create a tally of wins for
@@ -53,11 +53,11 @@ function game() {
     for (let i = 0; i < 5; i++) {
         playRound();
         results = playRound(playerSelection, computerSelection); 
-        if (results == 'W') {
+        if (results == 'You win rock beats scissors' || 'You win paper beats rock' || 'You win scissors beat paper') {
             console.log(results);          
-        } else if (results == 'L') {
+        } else if (results == 'You lose paper beats rock' || 'You lose scissors beat paper' || 'You lose rock beats scissors') {
             console.log(results);            
-        } else if (results == 'T') {
+        } else if (results == 'Tie') {
             console.log(results); 
         }   
     }    
