@@ -81,7 +81,7 @@ console.log('ties =', ties);
 console.log('computer =', computerWins);
 console.log('player =',playerWins); 
 
-if (computerWins + ties > playerWins) {
+if (computerWins => playerWins) {
     console.log('you lose');
 } else {
     console.log('you won')
