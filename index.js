@@ -68,7 +68,7 @@ if (computerWins < 5 || playerWins < 5) {
         content.textContent = `${results}`;
     
         container.appendChild(content);
-        
+            
         if (results === 'You win rock beats scissors' || results === 'You win paper beats rock' ||
         results === 'You win scissors beat paper') {
             playerWins++;
@@ -77,23 +77,38 @@ if (computerWins < 5 || playerWins < 5) {
             computerWins++;
         }
         const displayResults = document.querySelector('#displayResults');
-    
+
         const otherContent = document.createElement('div');
         otherContent.classList.add('otherContent');
-        otherContent.textContent = `player wins = ${playerWins} computer wina = ${computerWins}`;
-    
+        otherContent.textContent = `player wins = ${playerWins} computer wins = ${computerWins}`;
+
         displayResults.appendChild(otherContent);
         
         });
+        
       
     });
   
-} /* else if (computerWins === 5) {
-    return;
+} else if (computerWins === 5) {
+    const computerResults = document.querySelector('#computerResults');
+    
+    const stillOtherContent = document.createElement('div');
+    stillOtherContent.classList.add('stillOtherContent');
+    stillOtherContent.textContent = "The computer wins. Refresh to play again.";
+
+    computerResults.appendChild(stillOtherContent);
+    
 
 } else if (playerWins === 5){
-    return;
-}  */
+    const playerResults = document.querySelector('#playerResults');
+    
+    const evenMoreContent = document.createElement('div');
+    evenMoreContent.classList.add('evenMoreContent');
+    evenMoreContent.textContent = "You win. Refresh to play again.";
+
+    displayResults.appendChild(otherContent);
+        
+} 
 
 
 
