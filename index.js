@@ -5,23 +5,25 @@ function computerChoice (options) {
     return options[computerSelection];
 }
 // take an input from the player
-const playerChoice ="";
-function playerInput (playerChoice) {
-    playerChoice = (prompt("Please enter your selection for the game: [Rock, Paper or Scissors]"));
-    return playerChoice;
-}
-let middleStep = playerInput(playerChoice);
+//const playerChoice ="";
+//function playerInput (playerChoice) {
+  //  playerChoice = (prompt("Please enter your selection for the game: [Rock, Paper or Scissors]"));
+    //return playerChoice;
+//}
+//let middleStep = playerInput(playerChoice);
 // format the input for comparison
-function capitalize (middleStep) {
-    let first = middleStep.slice(0,1);
-    let rest = middleStep.slice(1);
-    let newName = first.toUpperCase(first) + rest.toLowerCase(rest);
-    return newName;
-}
+//function capitalize (middleStep) {
+  //  let first = middleStep.slice(0,1);
+    //let rest = middleStep.slice(1);
+    //let newName = first.toUpperCase(first) + rest.toLowerCase(rest);
+  //  return newName;
+//}
 //play a single round and return a result 
-let playerSelection = capitalize(middleStep);
 let computerSelection = "";
-console.log('Player chooses: ', playerSelection);
+let playerSelection = '';
+let results = '';
+
+//console.log('Player chooses: ', playerSelection);
 function playRound(playerSelection, computerSelection) {
     computerSelection = computerChoice(options);
     if (playerSelection == 'Rock' && computerSelection == 'Scissors') {
@@ -44,9 +46,42 @@ function playRound(playerSelection, computerSelection) {
         return 'Tie';
     } 
 }
+
+const btnRock = document.querySelector('#btnRock');
+btnRock.addEventListener('click', () => {
+  playerSelection = 'Rock';
+  let results = playRound(playerSelection, computerSelection);
+  console.log(results);
+});
+
+const btnPaper = document.querySelector('#btnPaper');
+btnPaper.addEventListener('click', () => {
+    playerSelection = 'Paper';
+    let results = playRound(playerSelection, computerSelection);
+    console.log(results);
+});
+
+const btnScissors = document.querySelector('#btnScissors');
+btnScissors.addEventListener('click', () => {
+    playerSelection = 'Scissors';
+    let results = playRound(playerSelection, computerSelection);
+    console.log(results);
+});
+
+const container = document.querySelector('#container');
+
+const content = document.createElement('div');
+content.classList.add('content');
+content.textContent = results;
+
+container.appendChild(content);
+
+//console.log(playerSelection);
+
+
 // trying to invoke the game five times and create a tally of wins for
 // each player
-let results = "";
+/*let results = "";
 let playerWins = 0;
 let ties =0;
 let computerWins = 0;
@@ -75,7 +110,9 @@ function game() {
     
 }
 
-game();
+
+
+//game();
 console.log('ties =', ties);
  
 console.log('computer =', computerWins);
