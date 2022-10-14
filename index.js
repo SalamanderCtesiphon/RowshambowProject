@@ -47,34 +47,62 @@ function playRound(playerSelection, computerSelection) {
     } 
 }
 
-const btnRock = document.querySelector('#btnRock');
-btnRock.addEventListener('click', () => {
-  playerSelection = 'Rock';
-  let results = playRound(playerSelection, computerSelection);
-  console.log(results);
-});
+// buttons is a node list. It looks and acts much like an array.
+const buttons = document.querySelectorAll('button');
 
-const btnPaper = document.querySelector('#btnPaper');
-btnPaper.addEventListener('click', () => {
-    playerSelection = 'Paper';
-    let results = playRound(playerSelection, computerSelection);
-    console.log(results);
-});
+let playerWins = 0;
+let computerWins = 0;
 
-const btnScissors = document.querySelector('#btnScissors');
-btnScissors.addEventListener('click', () => {
-    playerSelection = 'Scissors';
-    let results = playRound(playerSelection, computerSelection);
-    console.log(results);
-});
+if (computerWins < 5 || playerWins < 5) {
+    // we use the .forEach method to iterate through each button
+    buttons.forEach((button) => {
 
-const container = document.querySelector('#container');
+        // and for each one we add a 'click' listener
+        button.addEventListener('click', () => {
+        playerSelection = button.id;
+        results = playRound(playerSelection, computerSelection);
+        const container = document.querySelector('#container');
+    
+        const content = document.createElement('div');
+        content.classList.add('content');
+        content.textContent = `${results}`;
+    
+        container.appendChild(content);
+        
+        if (results === 'You win rock beats scissors' || results === 'You win paper beats rock' ||
+        results === 'You win scissors beat paper') {
+            playerWins++;
+        } else if (results === 'You lose paper beats rock' || results === 'You lose scissors beat paper' ||
+        results === 'You lose rock beats scissors') {
+            computerWins++;
+        }
+        const displayResults = document.querySelector('#displayResults');
+    
+        const otherContent = document.createElement('div');
+        otherContent.classList.add('otherContent');
+        otherContent.textContent = `player wins = ${playerWins} computer wina = ${computerWins}`;
+    
+        displayResults.appendChild(otherContent);
+        
+        });
+      
+    });
+  
+} /* else if (computerWins === 5) {
+    return;
 
-const content = document.createElement('div');
-content.classList.add('content');
-content.textContent = results;
+} else if (playerWins === 5){
+    return;
+}  */
 
-container.appendChild(content);
+
+
+
+
+
+
+
+
 
 //console.log(playerSelection);
 
